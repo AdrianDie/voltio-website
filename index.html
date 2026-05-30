@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voltio: AI-kundeservice på norsk, med deg i førersetet</title>
+  <meta name="description" content="Automatiser opptil 75 % av kundeservicen din med en norsk AI-agent. Du betaler ikke før det funker for deg. Bygd for små og mellomstore bedrifter, i trygg draft-modus.">
+  <meta name="theme-color" content="#1B34FF">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Voltio: AI-kundeservice på norsk">
+  <meta property="og:description" content="Automatiser opptil 75 % av kundeservicen. Du betaler ikke før det funker for deg. Norsk AI i trygg draft-modus.">
+  <meta property="og:locale" content="nb_NO">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#hovedinnhold">Hopp til innhold</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="#top" aria-label="Voltio, til toppen">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="30" height="30" role="img" aria-label="">
+            <rect width="32" height="32" rx="9" fill="var(--cobalt)"/>
+            <path d="M18.4 6.2 L10.2 17.6 a0.6 0.6 0 0 0 0.5 0.95 H14.3 L13.0 25.4 a0.5 0.5 0 0 0 0.9 0.38 L22.0 14.2 a0.6 0.6 0 0 0 -0.5 -0.95 H17.4 L18.9 6.6 a0.5 0.5 0 0 0 -0.5 -0.4 Z" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="brand__name">Voltio</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Hovedmeny">
+        <a href="#slik">Slik funker det</a>
+        <a href="#funksjoner">Funksjoner</a>
+        <a href="#pris">Pris</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav__cta">
+        <a class="btn btn--ghost" href="#kontakt">Book demo</a>
+        <a class="btn btn--solid" href="#pris">Start gratis pilot</a>
+      </div>
+
+      <button class="nav__burger" id="burger" aria-label="Åpne meny" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="hovedinnhold">
+
+    <span id="top"></span>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="floaters" aria-hidden="true">
+        <span class="floater f1"></span>
+        <span class="floater f2"></span>
+        <span class="floater f3"></span>
+        <span class="floater f4"></span>
+        <span class="floater f5"></span>
+      </div>
+
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="kicker" data-reveal>AI-kundeservice for norske bedrifter</p>
+          <h1 class="hero__title" data-reveal>
+            Automatiser <span class="ink-cobalt">opptil&nbsp;75&nbsp;%</span>
+            av kundeservicen din.
+          </h1>
+          <p class="hero__lead" data-reveal>
+            Voltio er en norsk AI-agent som svarer kundene dine ut fra din egen
+            informasjon, i trygg draft-modus der du godkjenner. Og du betaler
+            ikke før det faktisk funker for deg.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--solid btn--lg" href="#pris">
+              Start gratis pilot
+              <svg class="btn__arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--play btn--lg" href="#kontakt">
+              <span class="btn__playdot" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="12" height="12"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+              </span>
+              Book demo
+            </a>
+          </div>
+          <ul class="hero__trust" data-reveal>
+            <li>Betaler først når det funker</li>
+            <li>Norsk databehandling</li>
+            <li>GDPR-trygt</li>
+            <li>Klar på dager</li>
+          </ul>
+        </div>
+
+        <!-- Live produkt-demo: draft-flyten -->
+        <div class="hero__demo" data-reveal>
+          <div class="demo-card" id="demo">
+            <div class="demo-card__bar">
+              <span class="demo-card__dot"></span>
+              <span class="demo-card__title">Voltio på nettsiden din</span>
+            </div>
+
+            <div class="demo-chat" id="demoChat" aria-hidden="true">
+              <div class="bubble bubble--user" data-step="1">
+                Hei! Hva koster det å leie badstua en lørdag?
+              </div>
+
+              <div class="bubble bubble--ai" data-step="2">
+                <span class="bubble__who">Voltios forslag</span>
+                Badstua koster 1 200 kr for to timer i helgen, opptil 8 personer.
+                Vil du at jeg sjekker ledige tider?
+              </div>
+
+              <div class="demo-approve" data-step="3">
+                <div class="demo-approve__head">
+                  <span class="demo-approve__label">Venter på godkjenning</span>
+                </div>
+                <div class="demo-approve__actions">
+                  <button class="chip chip--approve" type="button" tabindex="-1">
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Send som det er
+                  </button>
+                  <button class="chip" type="button" tabindex="-1">Rediger</button>
+                  <button class="chip" type="button" tabindex="-1">Skriv eget</button>
+                </div>
+              </div>
+
+              <div class="bubble bubble--sent" data-step="4">
+                <span class="bubble__who bubble__who--ok">
+                  <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Sendt til kunden, godkjent av deg
+                </span>
+                Badstua koster 1 200 kr for to timer i helgen, opptil 8 personer.
+                Vil du at jeg sjekker ledige tider?
+              </div>
+            </div>
+
+            <div class="demo-card__input" aria-hidden="true">
+              <span>Skriv en melding …</span>
+              <span class="demo-card__send">
+                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="demo-tag demo-tag--draft">Forslag, ikke autosvar</div>
+          <div class="demo-tag demo-tag--lang">Svarer på norsk</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROBLEM ============ -->
+    <section class="section problem" id="problem">
+      <div class="wrap problem__grid">
+        <div class="problem__intro" data-reveal>
+          <h2 class="h2">De samme spørsmålene, om og om igjen.</h2>
+          <p class="lead">
+            For en liten bedrift er en stor del av henvendelsene de samme få
+            spørsmålene. De kommer på kveld og i helg, og de stjeler timene du
+            heller skulle brukt på driften.
+          </p>
+          <p class="problem__stat">
+            Mye av kundedialogen er gjentakelse. Det er nettopp den delen
+            Voltio kan ta for deg, slik at du tar resten.
+          </p>
+        </div>
+        <ul class="problem__bubbles" data-reveal>
+          <li>Når har dere åpent i påsken?</li>
+          <li>Hvor er pakken min?</li>
+          <li>Kan jeg booke bord til lørdag?</li>
+          <li>Hva koster levering til Tromsø?</li>
+          <li>Kan jeg avbestille rommet?</li>
+          <li>Har dere glutenfritt?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SLIK FUNKER DET ============ -->
+    <section class="section steps" id="slik">
+      <div class="wrap">
+        <header class="section__head" data-reveal>
+          <h2 class="h2">Fra nettside til svar på dager, ikke måneder.</h2>
+          <p class="lead">Tre steg. Det tredje er hele tryggheten.</p>
+        </header>
+
+        <ol class="steps__list">
+          <li class="step" data-reveal>
+            <span class="step__num">1</span>
+            <h3 class="step__title">Vi lærer boten fra nettsiden din</h3>
+            <p>
+              Vi leser nettsiden din og bygger en kunnskapsbase automatisk:
+              åpningstider, priser, vilkår, vanlige spørsmål. Du slipper å
+              skrive noe fra bunnen.
+            </p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num">2</span>
+            <h3 class="step__title">AI lager et forslag til svar</h3>
+            <p>
+              Når en kunde spør, finner Voltio svaret i din egen informasjon og
+              formulerer det på norsk. Vet den ikke svaret, sier den fra i
+              stedet for å gjette.
+            </p>
+          </li>
+          <li class="step step--key" data-reveal>
+            <span class="step__num">3</span>
+            <span class="step__flag">Draft-modus</span>
+            <h3 class="step__title">Du godkjenner, kunden får svar</h3>
+            <p>
+              I pilot ser et menneske hos dere hvert forslag før det sendes.
+              Ett klikk: send som det er, rediger først, eller skriv eget svar.
+              Ingenting går ut uten at dere vil det.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FUNKSJONER (BENTO) ============ -->
+    <section class="section features" id="funksjoner">
+      <div class="wrap">
+        <header class="section__head" data-reveal>
+          <h2 class="h2">Bygd for å spare deg tid, uten å miste kontrollen.</h2>
+        </header>
+
+        <div class="bento">
+          <article class="cell cell--wide cell--cobalt" data-reveal>
+            <div class="cell__body">
+              <h3 class="cell__title">Mennesket godkjenner. Alltid, i pilot.</h3>
+              <p>
+                Draft-modus er kjernen i Voltio. AI-en foreslår, dere bestemmer.
+                Det betyr at boten kan begynne å hjelpe kundene fra dag én, uten
+                at dere risikerer at den sier noe feil.
+              </p>
+            </div>
+            <div class="cell__visual" aria-hidden="true">
+              <div class="mini-approve">
+                <span class="mini-bubble">Forslag klart</span>
+                <span class="mini-check">
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Godkjent
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cell" data-reveal>
+            <span class="chip-icon" aria-hidden="true">no</span>
+            <h3 class="cell__title">Norsk fra dag én</h3>
+            <p>Svarer på bokmål i din tone. Forstår norsk kundeservice, ikke oversatt engelsk.</p>
+          </article>
+
+          <article class="cell" data-reveal>
+            <span class="chip-icon chip-icon--warm" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 7h16M4 12h16M4 17h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+            <h3 class="cell__title">Lærer fra nettsiden din</h3>
+            <p>Vi crawler siden din og bygger kunnskapsbasen. Endrer du noe, oppdaterer vi.</p>
+          </article>
+
+          <article class="cell" data-reveal>
+            <span class="chip-icon chip-icon--green" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="cell__title">Eskalerer trygt</h3>
+            <p>Er den usikker, sier den at en kollega svarer snart. Den lover aldri noe den ikke har dekning for.</p>
+          </article>
+
+          <article class="cell" data-reveal>
+            <span class="chip-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3 class="cell__title">GDPR og PII-vask</h3>
+            <p>Personopplysninger vaskes bort før AI-kallet. Norsk databehandling, databehandleravtale klar.</p>
+          </article>
+
+          <article class="cell cell--code" data-reveal>
+            <h3 class="cell__title">Én linje på nettsiden</h3>
+            <p>Lim inn én script-tag. Chat-knappen dukker opp nederst i hjørnet.</p>
+            <pre class="code"><code>&lt;script src="voltio.no/embed.js"
+  data-tenant-key="din-nøkkel"&gt;&lt;/script&gt;</code></pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROOF ============ -->
+    <section class="section proof" id="proof">
+      <div class="wrap proof__grid">
+        <div class="proof__media" data-reveal>
+          <div class="proof__photo" id="proofPhoto" role="img" aria-label="Stilisert illustrasjon av Henningsvær i Lofoten, med fjell, hav og røde rorbuer">
+            <svg class="proof__scene" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <defs>
+                <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#c8d6f1"/>
+                  <stop offset="0.62" stop-color="#e6eaf4"/>
+                  <stop offset="1" stop-color="#f4efe8"/>
+                </linearGradient>
+                <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#3a54df"/>
+                  <stop offset="1" stop-color="#222f78"/>
+                </linearGradient>
+                <g id="rorbu">
+                  <rect x="0" y="32" width="26" height="6" fill="#bf3b2c" opacity="0.18"/>
+                  <line x1="4" y1="22" x2="4" y2="33" stroke="#2b2330" stroke-width="2"/>
+                  <line x1="22" y1="22" x2="22" y2="33" stroke="#2b2330" stroke-width="2"/>
+                  <path d="M-3 3 L13 -9 L29 3 Z" fill="#33283b"/>
+                  <rect x="0" y="2" width="26" height="20" fill="#bf3b2c"/>
+                  <rect x="4" y="8" width="6" height="8" fill="#f2e8d2"/>
+                  <rect x="16" y="8" width="6" height="8" fill="#f2e8d2"/>
+                </g>
+              </defs>
+              <rect width="400" height="300" fill="url(#sky)"/>
+              <circle cx="316" cy="68" r="27" fill="#f7e7cf" opacity="0.75"/>
+              <path d="M0 152 L42 108 L82 140 L126 92 L168 142 L214 100 L262 146 L306 108 L352 150 L400 116 L400 200 L0 200 Z" fill="#9aa9d8" opacity="0.5"/>
+              <path d="M0 172 L52 118 L96 160 L150 104 L202 164 L252 118 L312 168 L362 128 L400 168 L400 205 L0 205 Z" fill="#4a5a9c"/>
+              <path d="M0 186 L60 150 L110 182 L168 144 L228 184 L286 152 L344 186 L400 158 L400 210 L0 210 Z" fill="#33407a"/>
+              <rect y="188" width="400" height="112" fill="url(#sea)"/>
+              <rect y="206" width="400" height="3" fill="#fff" opacity="0.08"/>
+              <rect y="230" width="400" height="2" fill="#fff" opacity="0.06"/>
+              <rect y="258" width="400" height="2" fill="#fff" opacity="0.05"/>
+              <use href="#rorbu" x="44" y="166"/>
+              <use href="#rorbu" x="150" y="174"/>
+              <use href="#rorbu" x="236" y="168"/>
+            </svg>
+            <span class="proof__place">Henningsvær, Lofoten</span>
+          </div>
+        </div>
+        <div class="proof__copy" data-reveal>
+          <p class="kicker">Vår første kunde</p>
+          <h2 class="h2">Trevarefabrikken i Henningsvær</h2>
+          <p class="lead">
+            Kulturhus, kafé, hotell og badstu på ett kaiområde i Lofoten. Voltio
+            svarer allerede kundene deres på alt fra badstupriser og åpningstider
+            til regler for bryllup og arrangementer.
+          </p>
+          <p class="proof__honest">
+            Vi er ærlige: Voltio er i pilotfase med vår første kunde. Vi selger
+            løftet og tryggheten i draft-modus, ikke en størrelse vi ikke har
+            enda. Vil du bli en av de neste? Da former vi produktet sammen med deg.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SAMMENLIGNING ============ -->
+    <section class="section compare">
+      <div class="wrap">
+        <header class="section__head" data-reveal>
+          <h2 class="h2">Tre måter å løse det på. Voltio er den tredje.</h2>
+        </header>
+        <div class="compare__cols">
+          <article class="vcol" data-reveal>
+            <h3 class="vcol__title">Ansette mer</h3>
+            <p class="vcol__note">Dyrt og tregt</p>
+            <ul class="vcol__list vcol__list--muted">
+              <li>Lønn hver måned, uansett volum</li>
+              <li>Opplæring, ferie, sykdom</li>
+              <li>Svarer ikke om natten</li>
+            </ul>
+          </article>
+
+          <article class="vcol" data-reveal>
+            <h3 class="vcol__title">Enterprise-verktøy</h3>
+            <p class="vcol__note">Bygd for de store</p>
+            <ul class="vcol__list vcol__list--muted">
+              <li>Høy pris og lange bindinger</li>
+              <li>Ukesvis med onboarding</li>
+              <li>Salgssamtale før du får prøve</li>
+            </ul>
+          </article>
+
+          <article class="vcol vcol--win" data-reveal>
+            <h3 class="vcol__title">Voltio</h3>
+            <p class="vcol__note">For små og mellomstore</p>
+            <ul class="vcol__list">
+              <li>Svarer døgnet rundt, på norsk</li>
+              <li>Klar på dager, lært fra nettsiden din</li>
+              <li>Draft-modus: du beholder kontrollen</li>
+              <li>Gratis pilot, ingen forpliktelse</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIS ============ -->
+    <section class="section pricing" id="pris">
+      <div class="wrap pricing__grid">
+        <div class="pricing__intro" data-reveal>
+          <h2 class="h2">Du betaler ikke før det funker for deg.</h2>
+          <p class="lead">
+            Vi tror på å bevise verdien først. Start med en gratis pilot på dine
+            egne kunder. Når Voltio går live, betaler du basert på hva den
+            faktisk løser, ikke en stor fast regning uansett resultat.
+          </p>
+          <p class="pricing__note">
+            Ingen kortinfo for å starte. Ingen binding. Du eier dataene dine, og
+            de kan slettes når som helst.
+          </p>
+        </div>
+
+        <div class="pricing__cards">
+          <article class="plan plan--primary" data-reveal>
+            <h3 class="plan__name">Gratis pilot</h3>
+            <p class="plan__desc">Se Voltio svare dine egne kunder, i trygg draft-modus. Helt uten kostnad.</p>
+            <ul class="plan__list">
+              <li>Vi lærer boten fra nettsiden din</li>
+              <li>Chat-widget på din side</li>
+              <li>Draft-godkjenning av alle svar</li>
+              <li>Tett oppfølging fra oss</li>
+            </ul>
+            <a class="btn btn--solid btn--block" href="#kontakt">Start gratis pilot</a>
+          </article>
+
+          <article class="plan" data-reveal>
+            <h3 class="plan__name">Betal for det som funker</h3>
+            <p class="plan__desc">Når du er klar til å gå live etter piloten.</p>
+            <ul class="plan__list plan__list--muted">
+              <li>Du betaler basert på resultatet, ikke flatt uansett</li>
+              <li>Forutsigbart, ingen skjulte gebyrer</li>
+              <li>Endelig modell lander vi sammen</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="#kontakt">Ta en prat</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section faq" id="faq">
+      <div class="wrap faq__grid">
+        <header class="faq__head" data-reveal>
+          <h2 class="h2">Vanlige spørsmål</h2>
+          <p class="lead">Det folk lurer mest på før de starter.</p>
+        </header>
+        <div class="faq__list" data-reveal>
+          <details class="qa">
+            <summary>Er det trygt? Hva om AI-en svarer feil?</summary>
+            <p>I pilot godkjenner et menneske hos dere hvert eneste svar før det går ut. Det er hele poenget med draft-modus: AI-en kan aldri si noe til kunden på egen hånd. Når dere er trygge, kan dere gradvis slippe opp.</p>
+          </details>
+          <details class="qa">
+            <summary>Hvor lang tid tar oppstarten?</summary>
+            <p>Vi lærer boten fra nettsiden deres automatisk, så de fleste er klare på dager, ikke uker. Vi følger dere tett gjennom piloten.</p>
+          </details>
+          <details class="qa">
+            <summary>Hva med personvern og GDPR?</summary>
+            <p>Personopplysninger vaskes bort før innholdet sendes til AI-en, og behandlingen skjer i tråd med GDPR. Databehandleravtale er klar til signering, og dere eier dataene deres.</p>
+          </details>
+          <details class="qa">
+            <summary>Hva koster det?</summary>
+            <p>Piloten er gratis, og du betaler ikke før Voltio faktisk funker for deg. Når den går live, betaler du basert på hva den løser, ikke en stor fast regning uansett resultat. Den endelige modellen lander vi sammen. Ta kontakt, så er vi åpne om alt.</p>
+          </details>
+          <details class="qa">
+            <summary>Hvilke bedrifter passer Voltio for?</summary>
+            <p>Bedrifter med en del gjentakende kundehenvendelser: kafeer og restauranter, hoteller og overnatting, nettbutikker, og lokale tjenestebedrifter. Har dere de samme spørsmålene om og om igjen, passer det godt.</p>
+          </details>
+          <details class="qa">
+            <summary>Hva om AI-en ikke kan svare?</summary>
+            <p>Da gjetter den ikke. Den sier fra til kunden at en kollega svarer snart, og legger saken til dere. Den lover heller aldri rabatter eller vilkår den ikke har dekning for.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="finalcta" id="kontakt">
+      <div class="floaters floaters--cta" aria-hidden="true">
+        <span class="floater f1"></span>
+        <span class="floater f3"></span>
+        <span class="floater f5"></span>
+      </div>
+      <div class="wrap finalcta__inner" data-reveal>
+        <h2 class="finalcta__title">Klar til å automatisere kundeservicen?</h2>
+        <p class="finalcta__lead">
+          Start en gratis pilot på dine egne kunder. Du betaler ikke før Voltio
+          faktisk funker for deg.
+        </p>
+        <div class="finalcta__actions">
+          <a class="btn btn--onCobalt btn--lg" href="mailto:post@dmarketing.no?subject=Voltio%20pilot">
+            Start gratis pilot
+            <svg class="btn__arrow" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--ghostOnCobalt btn--lg" href="mailto:post@dmarketing.no?subject=Book%20Voltio-demo">Book demo</a>
+        </div>
+        <p class="finalcta__contact">
+          post@dmarketing.no · +47 93 43 92 78
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <a class="brand brand--footer" href="#top" aria-label="Voltio">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="26" height="26"><rect width="32" height="32" rx="9" fill="var(--cobalt)"/><path d="M18.4 6.2 L10.2 17.6 a0.6 0.6 0 0 0 0.5 0.95 H14.3 L13.0 25.4 a0.5 0.5 0 0 0 0.9 0.38 L22.0 14.2 a0.6 0.6 0 0 0 -0.5 -0.95 H17.4 L18.9 6.6 a0.5 0.5 0 0 0 -0.5 -0.4 Z" fill="#fff"/></svg>
+          </span>
+          <span class="brand__name">Voltio</span>
+        </a>
+        <p>AI-kundeservice på norsk, med deg i førersetet. Bygd for små og mellomstore bedrifter.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Produkt</h4>
+        <ul>
+          <li><a href="#slik">Slik funker det</a></li>
+          <li><a href="#funksjoner">Funksjoner</a></li>
+          <li><a href="#pris">Pris</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:post@dmarketing.no">post@dmarketing.no</a></li>
+          <li><a href="tel:+4793439278">+47 93 43 92 78</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wrap footer__bottom">
+      <span>© 2026 Voltio</span>
+      <span>Dietrichs Marketing · org. 932 612 583</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
