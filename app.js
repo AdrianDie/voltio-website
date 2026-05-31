@@ -112,27 +112,9 @@
   var FORM_ENDPOINT = "";            // tom = mailto-fallback, f.eks. "https://formspree.io/f/xxxx"
   var MAILTO = "adrian@voltio.no";
   var okBox = document.getElementById("contactOk");
-  var submitText = document.getElementById("cf-submit-text");
 
   function fieldOf(el) { return el.closest(".field"); }
   function emailOk(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
-
-  /* ---- Dynamic submit-button text follows the chosen intent ---- */
-  var SUBMIT_LABELS = {
-    "ta en 15-min prat": "Book 15-min prat",
-    "se en demo": "Be om demo",
-    "starte en gratis pilot": "Start gratis pilot"
-  };
-  function syncSubmitText() {
-    if (!submitText) return;
-    var picked = form.querySelector("input[name='valg']:checked");
-    var label = picked && SUBMIT_LABELS[picked.value];
-    if (label) submitText.textContent = label;
-  }
-  form.querySelectorAll("input[name='valg']").forEach(function (r) {
-    r.addEventListener("change", syncSubmitText);
-  });
-  syncSubmitText();
 
   form.querySelectorAll("input, textarea").forEach(function (f) {
     f.addEventListener("input", function () {
@@ -155,28 +137,17 @@
       });
     if (!valid) { var bad = form.querySelector(".field--error input"); if (bad) bad.focus(); return; }
 
-    var valgEl = form.querySelector("input[name='valg']:checked");
-    var tidEl = form.querySelector("input[name='tidshorisont']:checked");
-    var integrasjoner = Array.prototype.map.call(
-      form.querySelectorAll("input[name='integrasjon']:checked"),
-      function (c) { return c.value; }
-    );
-
     var data = {
       navn: name.value.trim(),
       epost: email.value.trim(),
-      valg: valgEl ? valgEl.value : "",
-      integrasjoner: integrasjoner,
-      tidshorisont: tidEl ? tidEl.value : "",
+      systemer: form.systemer.value.trim(),
       nettside: form.nettside.value.trim()
     };
 
     function mailtoFallback() {
-      var subject = "Voltio, " + (data.valg || "henvendelse") + " — " + data.navn;
+      var subject = "Voltio demo, " + data.navn;
       var body = "Navn: " + data.navn + "\nE-post: " + data.epost +
-        "\nØnsker å: " + (data.valg || "(ikke valgt)") +
-        (data.integrasjoner.length ? "\nIntegrasjoner: " + data.integrasjoner.join(", ") : "") +
-        (data.tidshorisont ? "\nTidshorisont: " + data.tidshorisont : "") +
+        (data.systemer ? "\nSystemer: " + data.systemer : "") +
         (data.nettside ? "\nNettside: " + data.nettside : "");
       window.location.href = "mailto:" + MAILTO +
         "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
