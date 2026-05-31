@@ -41,7 +41,7 @@
   if (reduce) {
     /* Reveal everything, skip cycling, show only the first scenario */
     gsap.set("[data-reveal]", { opacity: 1, y: 0 });
-    document.querySelectorAll("#heroScenes .scenario").forEach(function (s, i) {
+    document.querySelectorAll("#heroScenes .scene").forEach(function (s, i) {
       if (i > 0) s.style.display = "none";
     });
     return;
@@ -76,7 +76,7 @@
   });
 
   /* ---- Hero scenarios: cycle the agent-in-action examples ---- */
-  var scenes = gsap.utils.toArray("#heroScenes .scenario");
+  var scenes = gsap.utils.toArray("#heroScenes .scene");
   if (scenes.length) {
     function showScene(active) {
       scenes.forEach(function (s, i) {
@@ -95,6 +95,6 @@
     setInterval(function () {
       sceneIdx = (sceneIdx + 1) % scenes.length;
       showScene(sceneIdx);
-    }, 5200);
+    }, 7000);
   }
 })();

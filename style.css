@@ -199,8 +199,7 @@ button { font: inherit; cursor: pointer; }
 
 /* Hero demo card */
 .hero__demo { position: relative; }
-.hero__scenes { max-width: 460px; margin-inline: auto; }
-.hero__demo .scenario { box-shadow: var(--sh-float); }
+.scene { display: flex; flex-direction: column; gap: 0.8rem; }
 .demo-card {
   position: relative; z-index: 2;
   background: var(--card); border: 1px solid var(--line);
@@ -396,6 +395,42 @@ button { font: inherit; cursor: pointer; }
 .finalcta__lead { font-size: var(--fs-1); margin-top: 1rem; color: color-mix(in oklch, #fff 88%, var(--cobalt)); line-height: 1.5; }
 .finalcta__actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-top: 2rem; }
 .finalcta__contact { margin-top: 1.6rem; font-size: var(--fs-0); color: color-mix(in oklch, #fff 80%, var(--cobalt)); }
+
+/* Two-column CTA with contact form */
+.finalcta__grid {
+  position: relative; z-index: 1; text-align: left;
+  display: grid; grid-template-columns: 1.02fr 0.98fr;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem); align-items: center;
+}
+.finalcta__copy { max-width: 32rem; }
+.finalcta__points { list-style: none; padding: 0; margin: 1.7rem 0 0; display: flex; flex-direction: column; gap: 0.6rem; }
+.finalcta__points li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: var(--fs-0); color: color-mix(in oklch, #fff 90%, var(--cobalt)); }
+.finalcta__points li::before { content: ""; flex: none; width: 20px; height: 20px; border-radius: 50%; margin-top: 1px; background: color-mix(in oklch, #fff 22%, transparent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E") center / 13px no-repeat; }
+.finalcta__grid .finalcta__contact a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.finalcta__grid .finalcta__contact a:hover { text-decoration: none; }
+
+/* Contact form card (light card on the cobalt section) */
+.contact-card { background: var(--card); color: var(--ink); border-radius: var(--r-lg); box-shadow: var(--sh-float); padding: clamp(1.5rem, 1rem + 1.5vw, 2.3rem); }
+.contact-form { display: flex; flex-direction: column; gap: 0.95rem; }
+.field { display: flex; flex-direction: column; gap: 0.35rem; text-align: left; }
+.field label { font-size: var(--fs--1); font-weight: 640; color: var(--ink-soft); }
+.field__opt { color: var(--muted); font-weight: 500; }
+.contact-form input, .contact-form textarea {
+  font: inherit; width: 100%; padding: 0.7em 0.9em; color: var(--ink);
+  background: var(--paper); border: 1.5px solid var(--line-2); border-radius: var(--r-sm);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--muted); }
+.contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: none; border-color: var(--cobalt); box-shadow: 0 0 0 3px var(--cobalt-tint-2); }
+.contact-form textarea { resize: vertical; min-height: 88px; }
+.contact-form .btn { margin-top: 0.35rem; }
+.contact-form__fineprint { font-size: var(--fs--1); color: var(--muted); text-align: center; margin: 0; }
+.field--error input, .field--error textarea { border-color: #cf4034; background: color-mix(in srgb, #cf4034 5%, var(--paper)); }
+
+.contact-ok { text-align: center; padding: clamp(1.4rem, 1rem + 2vw, 2.6rem) 0.5rem; }
+.contact-ok__check { display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; background: var(--green-soft); color: var(--green); margin-bottom: 1rem; }
+.contact-ok h3 { font-size: var(--fs-2); }
+.contact-ok p { color: var(--ink-soft); margin-top: 0.5rem; }
 
 /* ============================================================
    Footer
