@@ -277,8 +277,6 @@ button { font: inherit; cursor: pointer; }
 .cell--cobalt { background: var(--cobalt); border-color: var(--cobalt); color: #fff; box-shadow: var(--sh-float); }
 .cell--cobalt .cell__title { color: #fff; font-size: var(--fs-2); }
 .cell--cobalt p { color: color-mix(in oklch, #fff 86%, var(--cobalt)); }
-.cell--code { grid-column: span 3; flex-direction: row; align-items: center; gap: clamp(1.5rem, 1rem + 3vw, 4rem); }
-.cell--code > div, .cell--code > .code { flex: 1; }
 
 .chip-icon {
   display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 13px;
@@ -291,8 +289,6 @@ button { font: inherit; cursor: pointer; }
 .mini-bubble { background: #fff; color: var(--ink); border-radius: 12px; border-bottom-left-radius: 4px; padding: 0.55rem 0.8rem; font-size: 0.85rem; font-weight: 540; align-self: flex-start; }
 .mini-check { display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-end; background: var(--green); color: #fff; padding: 0.45rem 0.8rem; border-radius: var(--pill); font-size: 0.82rem; font-weight: 660; }
 
-.code { background: var(--cobalt-ink); color: oklch(0.9 0.05 200); border-radius: var(--r); padding: 1.1rem 1.2rem; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.82rem; line-height: 1.7; overflow-x: auto; min-width: 0; max-width: 100%; }
-.cell--code .cell__title { margin-bottom: 0.4rem; }
 
 /* ============================================================
    Proof
@@ -415,7 +411,7 @@ button { font: inherit; cursor: pointer; }
   .steps__list, .compare__cols { grid-template-columns: 1fr; }
   .vcol--win { transform: none; }
   .bento { grid-template-columns: repeat(2, 1fr); }
-  .cell--wide, .cell--code { grid-column: span 2; }
+  .cell--wide { grid-column: span 2; }
   .hero__demo { margin-top: 1rem; }
   .demo-tag--draft { left: 0; }
   .demo-tag--lang { right: 0; }
@@ -424,7 +420,6 @@ button { font: inherit; cursor: pointer; }
 @media (max-width: 760px) {
   .bento { grid-template-columns: 1fr; }
   .cell--wide { grid-column: span 1; flex-direction: column; align-items: flex-start; }
-  .cell--code { grid-column: span 1; flex-direction: column; align-items: stretch; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
   .footer__brand { grid-column: span 2; }
 }
