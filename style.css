@@ -477,6 +477,8 @@ button { font: inherit; cursor: pointer; }
 
 @media (max-width: 1000px) {
   .hero__grid, .problem__grid, .pricing__grid, .faq__grid, .epost__grid, .finalcta__grid { grid-template-columns: 1fr; }
+  /* Hide decorative floaters in single-column layout so they never sit on the heading */
+  .hero .floaters, .finalcta .floaters { display: none; }
   .finalcta__copy { max-width: 56ch; }
   .faq__head { position: static; }
   .steps__list, .compare__cols { grid-template-columns: 1fr; }
