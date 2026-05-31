@@ -328,6 +328,7 @@ button { font: inherit; cursor: pointer; }
    Proof
    ============================================================ */
 /* Brukt av: E-Wheels — trust-stripe (samme treatment som voltio.no) */
+.proof { padding-block: clamp(1.5rem, 1rem + 2vw, 3rem); }
 .proof__trust { text-align: center; }
 .proof__card { max-width: 540px; margin: 1.6rem auto 0; background: #fff; border: 1px solid rgba(20,30,60,0.09); border-radius: var(--r-xl); box-shadow: var(--sh-float); padding: 2.4rem 3rem; }
 .proof__logobox { height: 72px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
