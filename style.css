@@ -367,7 +367,8 @@ button { font: inherit; cursor: pointer; }
 .plan__list li::before { content: ""; flex: none; width: 20px; height: 20px; border-radius: 50%; margin-top: 1px; background: var(--cobalt-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B34FF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E") center / 13px no-repeat; }
 .plan__list--muted li::before { background: var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f6f5e' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E") center / 13px no-repeat; }
 .plan--primary { border: 1.5px solid var(--cobalt); box-shadow: var(--sh-2); position: relative; }
-.plan--primary::after { content: "Anbefalt start"; position: absolute; top: -12px; left: clamp(1.6rem, 1.2rem + 1vw, 2.2rem); background: var(--cobalt); color: #fff; font-size: 0.72rem; font-weight: 720; letter-spacing: 0.03em; padding: 0.35em 0.8em; border-radius: var(--pill); }
+.plan__phase { font-size: var(--fs--1); font-weight: 700; letter-spacing: 0.01em; color: var(--ink-soft); margin-bottom: 0.7rem; }
+.plan__list + .plan__phase { margin-top: 0.2rem; }
 
 /* ============================================================
    FAQ
