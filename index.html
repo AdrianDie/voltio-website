@@ -98,60 +98,38 @@
           </ul>
         </div>
 
-        <!-- Live produkt-demo: draft-flyten -->
+        <!-- Live produkt-demo: agenten i arbeid -->
         <div class="hero__demo" data-reveal>
-          <div class="demo-card" id="demo">
-            <div class="demo-card__bar">
-              <span class="demo-card__dot"></span>
-              <span class="demo-card__title">Voltio på nettsiden din</span>
-            </div>
+          <div class="hero__scenes" id="heroScenes" aria-hidden="true">
+            <article class="scenario" data-scene="1">
+              <span class="scenario__tag">Retur, ferdig opprettet</span>
+              <div class="bubble bubble--user">Hei, jeg vil returnere ordre #10493, feil størrelse.</div>
+              <ul class="actions">
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hentet ordre #10493 <span class="action__sys">Shopify</span></li>
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Sjekket returvilkår</li>
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Opprettet returetikett <span class="action__sys">Bring</span></li>
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Sendte lenke med instruksjoner</li>
+              </ul>
+              <div class="bubble bubble--sent">
+                <span class="bubble__who bubble__who--ok"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Løst for kunden</span>
+                Returen er klar. Du får etikett og steg-for-steg på e-post nå. Pengene er tilbake 3 til 5 dager etter at vi mottar pakken.
+              </div>
+            </article>
 
-            <div class="demo-chat" id="demoChat" aria-hidden="true">
-              <!-- Enkelt spørsmål: AI svarer selv -->
-              <div class="bubble bubble--user" data-grp="1">
-                Hvor er pakken min? Ordre 4471.
+            <article class="scenario" data-scene="2">
+              <span class="scenario__tag">Feilsøking, ikke bare FAQ</span>
+              <div class="bubble bubble--user">Sparkesykkelen dør plutselig, og starter bare igjen når jeg kobler til laderen.</div>
+              <ul class="actions">
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Kjente igjen symptomet: BMS-kutt</li>
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Utelukket lader og hovedkort</li>
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Ga BMS-reset steg for steg</li>
+                <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Klargjorde service hvis feilen vedvarer</li>
+              </ul>
+              <div class="bubble bubble--sent">
+                <span class="bubble__who bubble__who--ok"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Løst for kunden</span>
+                Det høres ut som en BMS-feil: batteriet kutter strømmen, men våkner når du kobler til laderen. Lad helt opp til lampen lyser grønt og ta en testtur. Kutter den fortsatt, er det trolig en svak battericelle, og jeg har klargjort en service-sak.
               </div>
-              <div class="bubble bubble--sent" data-grp="1">
-                <span class="bubble__who bubble__who--auto">
-                  <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M13 2 L5 13 h5 l-1 8 8-11 h-5 z" fill="currentColor"/></svg>
-                  Svart automatisk
-                </span>
-                Pakken din ble sendt med Bring i går og er ute til levering i dag. Her er sporingen.
-              </div>
-
-              <!-- Usikkert spørsmål: utkast til deg -->
-              <div class="bubble bubble--user" data-grp="2">
-                Kan jeg få full refusjon? Jeg kjøpte for 40 dager siden.
-              </div>
-              <div class="demo-approve" data-grp="2">
-                <div class="demo-approve__head">
-                  <span class="demo-approve__label">Voltio er usikker · utkast til deg</span>
-                </div>
-                <p class="demo-approve__draft">Returfristen er normalt 30 dager, men jeg vil gjerne sjekke om vi kan gjøre et unntak for deg. Jeg kommer tilbake til deg.</p>
-                <div class="demo-approve__actions">
-                  <button class="chip chip--approve" type="button" tabindex="-1">
-                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    Send som det er
-                  </button>
-                  <button class="chip" type="button" tabindex="-1">Rediger</button>
-                  <button class="chip" type="button" tabindex="-1">Skriv eget</button>
-                </div>
-              </div>
-              <div class="bubble bubble--sent" data-grp="2">
-                <span class="bubble__who bubble__who--ok">
-                  <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  Sendt, godkjent av deg
-                </span>
-                Returfristen er normalt 30 dager, men jeg vil gjerne sjekke om vi kan gjøre et unntak for deg. Jeg kommer tilbake til deg.
-              </div>
-            </div>
-
-            <div class="demo-card__input" aria-hidden="true">
-              <span>Skriv en melding …</span>
-              <span class="demo-card__send">
-                <svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </div>
+            </article>
           </div>
         </div>
       </div>
@@ -322,38 +300,6 @@
           <span class="sys-chip"><img class="sys-logo" src="logos/bring.svg" alt="" aria-hidden="true"> Bring</span>
           <span class="sys-chip"><img class="sys-logo" src="logos/posten.svg" alt="" aria-hidden="true"> Posten</span>
           <span class="sys-chip sys-chip--more">+ ditt system</span>
-        </div>
-
-        <div class="scenarios">
-          <article class="scenario" data-reveal>
-            <span class="scenario__tag">Retur, ferdig opprettet</span>
-            <div class="bubble bubble--user">Hei, jeg vil returnere ordre #10493, feil størrelse.</div>
-            <ul class="actions">
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hentet ordre #10493 <span class="action__sys">Shopify</span></li>
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Sjekket returvilkår</li>
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Opprettet returetikett <span class="action__sys">Bring</span></li>
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Sendte lenke med instruksjoner</li>
-            </ul>
-            <div class="bubble bubble--sent">
-              <span class="bubble__who bubble__who--ok"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Løst for kunden</span>
-              Returen er klar. Du får etikett og steg-for-steg på e-post nå. Pengene er tilbake 3 til 5 dager etter at vi mottar pakken.
-            </div>
-          </article>
-
-          <article class="scenario" data-reveal>
-            <span class="scenario__tag">Feilsøking, ikke bare FAQ</span>
-            <div class="bubble bubble--user">Sparkesykkelen dør plutselig, og starter bare igjen når jeg kobler til laderen.</div>
-            <ul class="actions">
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Kjente igjen symptomet: BMS-kutt</li>
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Utelukket lader og hovedkort</li>
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Ga BMS-reset steg for steg</li>
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Klargjorde service hvis feilen vedvarer</li>
-            </ul>
-            <div class="bubble bubble--sent">
-              <span class="bubble__who bubble__who--ok"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Løst for kunden</span>
-              Det høres ut som en BMS-feil: batteriet kutter strømmen, men våkner når du kobler til laderen (det nullstiller BMS-en). Prøv dette: koble til laderen, la den lade helt til ladelampen lyser grønt (fulladet), og ta en kort testtur. Kutter den fortsatt uten lader tilkoblet, er det trolig en svak battericelle, og da har jeg klargjort en service-sak for deg.
-            </div>
-          </article>
         </div>
       </div>
     </section>

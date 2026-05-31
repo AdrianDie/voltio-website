@@ -199,6 +199,8 @@ button { font: inherit; cursor: pointer; }
 
 /* Hero demo card */
 .hero__demo { position: relative; }
+.hero__scenes { max-width: 460px; margin-inline: auto; }
+.hero__demo .scenario { box-shadow: var(--sh-float); }
 .demo-card {
   position: relative; z-index: 2;
   background: var(--card); border: 1px solid var(--line);

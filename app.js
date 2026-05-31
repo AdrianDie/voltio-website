@@ -39,10 +39,11 @@
   if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
 
   if (reduce) {
-    /* Reveal everything, skip looping demo, show a sensible static demo */
+    /* Reveal everything, skip cycling, show only the first scenario */
     gsap.set("[data-reveal]", { opacity: 1, y: 0 });
-    var ap = document.querySelector(".demo-approve");
-    if (ap) ap.style.display = "none";
+    document.querySelectorAll("#heroScenes .scenario").forEach(function (s, i) {
+      if (i > 0) s.style.display = "none";
+    });
     return;
   }
 
@@ -74,48 +75,26 @@
     });
   });
 
-  /* ---- Hero chat demo: answers directly, then drafts-and-asks when unsure ---- */
-  var chat = document.getElementById("demoChat");
-  if (chat) {
-    var u1 = chat.querySelector('.bubble--user[data-grp="1"]');
-    var a1 = chat.querySelector('.bubble--sent[data-grp="1"]');
-    var u2 = chat.querySelector('.bubble--user[data-grp="2"]');
-    var draft = chat.querySelector('.demo-approve[data-grp="2"]');
-    var sent2 = chat.querySelector('.bubble--sent[data-grp="2"]');
-    var approveBtn = draft ? draft.querySelector(".chip--approve") : null;
-
-    function resetDemo() {
-      gsap.set([u1, a1, u2], { opacity: 0, y: 14, display: "block" });
-      gsap.set(draft, { opacity: 0, y: 14, scale: 1, display: "block" });
-      gsap.set(sent2, { opacity: 0, y: 14, display: "none" });
-      if (approveBtn) gsap.set(approveBtn, { scale: 1 });
+  /* ---- Hero scenarios: cycle the agent-in-action examples ---- */
+  var scenes = gsap.utils.toArray("#heroScenes .scenario");
+  if (scenes.length) {
+    function showScene(active) {
+      scenes.forEach(function (s, i) {
+        gsap.set(s, { display: i === active ? "flex" : "none" });
+      });
+      var s = scenes[active];
+      gsap.fromTo(s, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.55, ease: EASE });
+      gsap.fromTo(
+        s.querySelectorAll(".action"),
+        { opacity: 0, x: -8 },
+        { opacity: 1, x: 0, duration: 0.4, stagger: 0.12, ease: EASE, delay: 0.15 }
+      );
     }
-    resetDemo();
-
-    var tl = gsap.timeline({
-      repeat: -1, repeatDelay: 1.8,
-      scrollTrigger: { trigger: ".demo-card", start: "top 80%" },
-      onRepeat: resetDemo
-    });
-
-    /* Exchange 1: confident -> answers the customer itself */
-    tl.to(u1, { opacity: 1, y: 0, duration: 0.5, ease: EASE }, 0.3)
-      .to(a1, { opacity: 1, y: 0, duration: 0.5, ease: EASE }, 1.1)
-      /* clear exchange 1 so the card stays compact */
-      .to([u1, a1], { opacity: 0, y: -10, duration: 0.4, ease: "power2.in" }, 2.9)
-      .set([u1, a1], { display: "none" })
-      /* Exchange 2: unsure -> draft for approval -> sent */
-      .to(u2, { opacity: 1, y: 0, duration: 0.5, ease: EASE }, 3.4)
-      .to(draft, { opacity: 1, y: 0, duration: 0.5, ease: EASE }, 4.1);
-
-    if (approveBtn) {
-      tl.to(approveBtn, { scale: 0.92, duration: 0.12, ease: "power2.out" }, 5.1)
-        .to(approveBtn, { scale: 1, duration: 0.18, ease: "back.out(2)" }, 5.22);
-    }
-
-    tl.to(draft, { opacity: 0, y: -10, scale: 0.97, duration: 0.35, ease: "power2.in" }, 5.5)
-      .set(draft, { display: "none" })
-      .set(sent2, { display: "block" })
-      .to(sent2, { opacity: 1, y: 0, duration: 0.5, ease: EASE }, ">-0.05");
+    showScene(0);
+    var sceneIdx = 0;
+    setInterval(function () {
+      sceneIdx = (sceneIdx + 1) % scenes.length;
+      showScene(sceneIdx);
+    }, 5200);
   }
 })();
