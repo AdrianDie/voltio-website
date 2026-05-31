@@ -98,3 +98,100 @@
     }, 7000);
   }
 })();
+
+
+/* ---- Contact form (works on a static host with no backend) ----
+   Default: builds a mailto to adrian@voltio.no on submit.
+   To use a real form service later, set FORM_ENDPOINT to a POST URL
+   (Formspree / Web3Forms / egen backend) that accepts JSON. */
+(function () {
+  "use strict";
+  var form = document.getElementById("contactForm");
+  if (!form) return;
+
+  var FORM_ENDPOINT = "";            // tom = mailto-fallback, f.eks. "https://formspree.io/f/xxxx"
+  var MAILTO = "adrian@voltio.no";
+  var okBox = document.getElementById("contactOk");
+  var submitText = document.getElementById("cf-submit-text");
+
+  function fieldOf(el) { return el.closest(".field"); }
+  function emailOk(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+
+  /* ---- Dynamic submit-button text follows the chosen intent ---- */
+  var SUBMIT_LABELS = {
+    "ta en 15-min prat": "Book 15-min prat",
+    "se en demo": "Be om demo",
+    "starte en gratis pilot": "Start gratis pilot"
+  };
+  function syncSubmitText() {
+    if (!submitText) return;
+    var picked = form.querySelector("input[name='valg']:checked");
+    var label = picked && SUBMIT_LABELS[picked.value];
+    if (label) submitText.textContent = label;
+  }
+  form.querySelectorAll("input[name='valg']").forEach(function (r) {
+    r.addEventListener("change", syncSubmitText);
+  });
+  syncSubmitText();
+
+  form.querySelectorAll("input, textarea").forEach(function (f) {
+    f.addEventListener("input", function () {
+      var fld = fieldOf(f); if (fld) fld.classList.remove("field--error");
+    });
+  });
+
+  function showThanks() {
+    form.style.display = "none";
+    if (okBox) { okBox.hidden = false; okBox.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = form.navn, email = form.epost, valid = true;
+    [[name, !!name.value.trim()], [email, !!email.value.trim() && emailOk(email.value.trim())]]
+      .forEach(function (pair) {
+        var fld = fieldOf(pair[0]); if (fld) fld.classList.toggle("field--error", !pair[1]);
+        if (!pair[1]) valid = false;
+      });
+    if (!valid) { var bad = form.querySelector(".field--error input"); if (bad) bad.focus(); return; }
+
+    var valgEl = form.querySelector("input[name='valg']:checked");
+    var tidEl = form.querySelector("input[name='tidshorisont']:checked");
+    var integrasjoner = Array.prototype.map.call(
+      form.querySelectorAll("input[name='integrasjon']:checked"),
+      function (c) { return c.value; }
+    );
+
+    var data = {
+      navn: name.value.trim(),
+      epost: email.value.trim(),
+      valg: valgEl ? valgEl.value : "",
+      integrasjoner: integrasjoner,
+      tidshorisont: tidEl ? tidEl.value : "",
+      nettside: form.nettside.value.trim()
+    };
+
+    function mailtoFallback() {
+      var subject = "Voltio, " + (data.valg || "henvendelse") + " — " + data.navn;
+      var body = "Navn: " + data.navn + "\nE-post: " + data.epost +
+        "\nØnsker å: " + (data.valg || "(ikke valgt)") +
+        (data.integrasjoner.length ? "\nIntegrasjoner: " + data.integrasjoner.join(", ") : "") +
+        (data.tidshorisont ? "\nTidshorisont: " + data.tidshorisont : "") +
+        (data.nettside ? "\nNettside: " + data.nettside : "");
+      window.location.href = "mailto:" + MAILTO +
+        "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      showThanks();
+    }
+
+    if (FORM_ENDPOINT) {
+      fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function (r) { if (r.ok) showThanks(); else mailtoFallback(); })
+        .catch(mailtoFallback);
+    } else {
+      mailtoFallback();
+    }
+  });
+})();
