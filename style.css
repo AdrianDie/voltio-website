@@ -217,10 +217,12 @@ button { font: inherit; cursor: pointer; }
 .bubble--sent { align-self: flex-start; background: var(--card); border: 1px solid var(--line); border-bottom-left-radius: 5px; box-shadow: var(--sh-1); }
 .bubble__who { display: flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; color: var(--cobalt); margin-bottom: 0.3rem; text-transform: uppercase; }
 .bubble__who--ok { color: var(--green); text-transform: none; letter-spacing: 0; font-size: 0.74rem; }
+.bubble__who--auto { color: var(--cobalt); text-transform: none; letter-spacing: 0; font-size: 0.74rem; }
 
 .demo-approve { align-self: stretch; background: color-mix(in oklch, var(--warm-soft) 55%, var(--card)); border: 1px dashed var(--line-2); border-radius: 14px; padding: 0.7rem 0.8rem; }
 .demo-approve__head { margin-bottom: 0.55rem; }
 .demo-approve__label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: oklch(0.55 0.1 45); }
+.demo-approve__draft { font-size: 0.9rem; line-height: 1.45; color: var(--ink-soft); margin: 0 0 0.6rem; }
 .demo-approve__actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .chip { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 620; padding: 0.42em 0.7em; border-radius: var(--pill); border: 1px solid var(--line-2); background: var(--card); color: var(--ink-soft); }
 .chip--approve { background: var(--green); color: #fff; border-color: var(--green); }

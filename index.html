@@ -76,8 +76,8 @@
           </h1>
           <p class="hero__lead" data-reveal>
             Voltio er en norsk AI-agent som svarer kundene dine ut fra din egen
-            informasjon, i trygg draft-modus der du godkjenner. Og du betaler
-            ikke før det faktisk funker for deg.
+            informasjon. Er den usikker, gjetter den ikke. Da lager den et
+            utkast og spør deg før noe sendes. Og du betaler ikke før det funker.
           </p>
           <div class="hero__actions" data-reveal>
             <a class="btn btn--solid btn--lg" href="#pris">
@@ -108,20 +108,27 @@
             </div>
 
             <div class="demo-chat" id="demoChat" aria-hidden="true">
-              <div class="bubble bubble--user" data-step="1">
-                Hei! Hva koster det å leie badstua en lørdag?
+              <!-- Enkelt spørsmål: AI svarer selv -->
+              <div class="bubble bubble--user" data-grp="1">
+                Når har dere åpent i helgene?
+              </div>
+              <div class="bubble bubble--sent" data-grp="1">
+                <span class="bubble__who bubble__who--auto">
+                  <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path d="M13 2 L5 13 h5 l-1 8 8-11 h-5 z" fill="currentColor"/></svg>
+                  Svart automatisk
+                </span>
+                Vi har åpent 10–22 både lørdag og søndag. Velkommen innom!
               </div>
 
-              <div class="bubble bubble--ai" data-step="2">
-                <span class="bubble__who">Voltios forslag</span>
-                Badstua koster 1 200 kr for to timer i helgen, opptil 8 personer.
-                Vil du at jeg sjekker ledige tider?
+              <!-- Usikkert spørsmål: utkast til deg -->
+              <div class="bubble bubble--user" data-grp="2">
+                Kan vi booke hele badstua til et bryllup?
               </div>
-
-              <div class="demo-approve" data-step="3">
+              <div class="demo-approve" data-grp="2">
                 <div class="demo-approve__head">
-                  <span class="demo-approve__label">Venter på godkjenning</span>
+                  <span class="demo-approve__label">Voltio er usikker · utkast til deg</span>
                 </div>
+                <p class="demo-approve__draft">Så hyggelig! Vi får til private arrangementer. Jeg dobbeltsjekker pris og kapasitet og kommer tilbake til deg.</p>
                 <div class="demo-approve__actions">
                   <button class="chip chip--approve" type="button" tabindex="-1">
                     <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -131,14 +138,12 @@
                   <button class="chip" type="button" tabindex="-1">Skriv eget</button>
                 </div>
               </div>
-
-              <div class="bubble bubble--sent" data-step="4">
+              <div class="bubble bubble--sent" data-grp="2">
                 <span class="bubble__who bubble__who--ok">
                   <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  Sendt til kunden, godkjent av deg
+                  Sendt, godkjent av deg
                 </span>
-                Badstua koster 1 200 kr for to timer i helgen, opptil 8 personer.
-                Vil du at jeg sjekker ledige tider?
+                Så hyggelig! Vi får til private arrangementer. Jeg dobbeltsjekker pris og kapasitet og kommer tilbake til deg.
               </div>
             </div>
 
@@ -150,7 +155,7 @@
             </div>
           </div>
 
-          <div class="demo-tag demo-tag--draft">Forslag, ikke autosvar</div>
+          <div class="demo-tag demo-tag--draft">Svarer selv, spør når den må</div>
           <div class="demo-tag demo-tag--lang">Svarer på norsk</div>
         </div>
       </div>
@@ -202,21 +207,21 @@
           </li>
           <li class="step" data-reveal>
             <span class="step__num">2</span>
-            <h3 class="step__title">AI lager et forslag til svar</h3>
+            <h3 class="step__title">Den svarer kunden når den kan</h3>
             <p>
-              Når en kunde spør, finner Voltio svaret i din egen informasjon og
-              formulerer det på norsk. Vet den ikke svaret, sier den fra i
-              stedet for å gjette.
+              Finner Voltio svaret i din egen informasjon, svarer den kunden
+              direkte, på norsk, døgnet rundt. Du slipper å løfte en finger på
+              de spørsmålene som går igjen.
             </p>
           </li>
           <li class="step step--key" data-reveal>
             <span class="step__num">3</span>
-            <span class="step__flag">Draft-modus</span>
-            <h3 class="step__title">Du godkjenner, kunden får svar</h3>
+            <span class="step__flag">Trygt</span>
+            <h3 class="step__title">Usikker? Da spør den deg først</h3>
             <p>
-              I pilot ser et menneske hos dere hvert forslag før det sendes.
-              Ett klikk: send som det er, rediger først, eller skriv eget svar.
-              Ingenting går ut uten at dere vil det.
+              Er den ikke sikker, gjetter den aldri. Da lager den et utkast og
+              sender det til deg for godkjenning. Ett klikk: send, rediger,
+              eller skriv eget. Ingenting usikkert går ut uten at du vil det.
             </p>
           </li>
         </ol>
@@ -233,11 +238,11 @@
         <div class="bento">
           <article class="cell cell--wide cell--cobalt" data-reveal>
             <div class="cell__body">
-              <h3 class="cell__title">Mennesket godkjenner. Alltid, i pilot.</h3>
+              <h3 class="cell__title">Svarer selv. Spør deg når den er usikker.</h3>
               <p>
-                Draft-modus er kjernen i Voltio. AI-en foreslår, dere bestemmer.
-                Det betyr at boten kan begynne å hjelpe kundene fra dag én, uten
-                at dere risikerer at den sier noe feil.
+                Dette er kjernen i Voltio. Den svarer kundene direkte på det den
+                er trygg på, og lager et utkast til godkjenning når den ikke er
+                sikker. Du får hjelpen uten å risikere at den sier noe feil.
               </p>
             </div>
             <div class="cell__visual" aria-hidden="true">
@@ -269,8 +274,8 @@
             <span class="chip-icon chip-icon--green" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
             </span>
-            <h3 class="cell__title">Eskalerer trygt</h3>
-            <p>Er den usikker, sier den at en kollega svarer snart. Den lover aldri noe den ikke har dekning for.</p>
+            <h3 class="cell__title">Gjetter aldri</h3>
+            <p>Mangler den dekning for et svar, finner den det ikke på. Den lager et utkast til deg, eller sier fra at en kollega følger opp.</p>
           </article>
 
           <article class="cell" data-reveal>
@@ -444,7 +449,7 @@
         <div class="faq__list" data-reveal>
           <details class="qa">
             <summary>Er det trygt? Hva om AI-en svarer feil?</summary>
-            <p>I pilot godkjenner et menneske hos dere hvert eneste svar før det går ut. Det er hele poenget med draft-modus: AI-en kan aldri si noe til kunden på egen hånd. Når dere er trygge, kan dere gradvis slippe opp.</p>
+            <p>Voltio svarer kunden direkte bare når den er trygg på svaret ut fra deres egen informasjon. Er den usikker, gjetter den ikke. Da lager den et utkast og spør dere før noe sendes. Dere bestemmer selv hvor sikker den må være før den svarer på egen hånd.</p>
           </details>
           <details class="qa">
             <summary>Hvor lang tid tar oppstarten?</summary>
@@ -464,7 +469,7 @@
           </details>
           <details class="qa">
             <summary>Hva om AI-en ikke kan svare?</summary>
-            <p>Da gjetter den ikke. Den sier fra til kunden at en kollega svarer snart, og legger saken til dere. Den lover heller aldri rabatter eller vilkår den ikke har dekning for.</p>
+            <p>Da gjetter den ikke. Den lager et utkast og sender det til dere for godkjenning før noe går ut, eller sier fra til kunden at en kollega følger opp. Den lover heller aldri rabatter eller vilkår den ikke har dekning for.</p>
           </details>
         </div>
       </div>
