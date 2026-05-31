@@ -109,8 +109,9 @@
   var form = document.getElementById("contactForm");
   if (!form) return;
 
-  var FORM_ENDPOINT = "";            // tom = mailto-fallback, f.eks. "https://formspree.io/f/xxxx"
-  var MAILTO = "adrian@voltio.no";
+  var FORM_ENDPOINT = "https://api.web3forms.com/submit";   // Web3Forms (sender til e-posten knyttet til nøkkelen)
+  var ACCESS_KEY = "90a85fc2-8cd4-4f3c-b5e7-e78b2b5fbc78";  // offentlig nøkkel, trygg i klientkode
+  var MAILTO = "adrian@voltio.no";                           // fallback hvis nett/endepunkt feiler
   var okBox = document.getElementById("contactOk");
 
   function fieldOf(el) { return el.closest(".field"); }
@@ -154,11 +155,22 @@
       showThanks();
     }
 
-    if (FORM_ENDPOINT) {
+    if (FORM_ENDPOINT && ACCESS_KEY) {
+      var payload = {
+        access_key: ACCESS_KEY,
+        subject: "Ny Voltio-henvendelse fra " + data.navn,
+        from_name: "Voltio nettside",
+        email: data.epost,                                   // brukes som svar-til
+        botcheck: form.botcheck ? form.botcheck.checked : false,
+        "Navn": data.navn,
+        "E-post": data.epost,
+        "Systemer": data.systemer || "(ikke oppgitt)",
+        "Nettside": data.nettside || "(ikke oppgitt)"
+      };
       fetch(FORM_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify(payload)
       }).then(function (r) { if (r.ok) showThanks(); else mailtoFallback(); })
         .catch(mailtoFallback);
     } else {
