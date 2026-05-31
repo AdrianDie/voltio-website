@@ -327,17 +327,12 @@ button { font: inherit; cursor: pointer; }
 /* ============================================================
    Proof
    ============================================================ */
-.proof__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
-.proof__photo {
-  position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-xl); overflow: hidden;
-  background:
-    linear-gradient(160deg, oklch(0.55 0.08 240 / 0.15), transparent 60%),
-    linear-gradient(200deg, oklch(0.7 0.09 220), oklch(0.45 0.07 250) 70%, oklch(0.3 0.06 260));
-  box-shadow: var(--sh-float); display: flex; align-items: flex-end; padding: 1.2rem;
-}
-.proof__scene { position: absolute; inset: 0; width: 100%; height: 100%; }
-.proof__place { position: relative; z-index: 1; background: color-mix(in oklch, #000 38%, transparent); color: #fff; font-size: var(--fs--1); font-weight: 620; padding: 0.45em 0.85em; border-radius: var(--pill); backdrop-filter: blur(4px); }
-.proof__honest { margin-top: 1.2rem; padding: 1.1rem 1.3rem; background: var(--cobalt-tint); border-radius: var(--r); color: var(--ink-soft); font-size: var(--fs-0); max-width: 54ch; }
+/* Brukt av: E-Wheels — trust-stripe (samme treatment som voltio.no) */
+.proof__trust { text-align: center; }
+.proof__card { max-width: 540px; margin: 1.6rem auto 0; background: #fff; border: 1px solid rgba(20,30,60,0.09); border-radius: var(--r-xl); box-shadow: var(--sh-float); padding: 2.4rem 3rem; }
+.proof__logobox { height: 72px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.proof__logobox img { height: 236px; margin: -82px 0; }
+.proof__sub { margin-top: 1.3rem; color: var(--ink-soft); font-size: var(--fs-0); }
 
 /* ============================================================
    Compare
@@ -439,9 +434,8 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 1000px) {
-  .hero__grid, .problem__grid, .proof__grid, .pricing__grid, .faq__grid, .epost__grid { grid-template-columns: 1fr; }
+  .hero__grid, .problem__grid, .pricing__grid, .faq__grid, .epost__grid { grid-template-columns: 1fr; }
   .faq__head { position: static; }
-  .proof__media { order: 2; }
   .steps__list, .compare__cols { grid-template-columns: 1fr; }
   .vcol--win { transform: none; }
   .bento { grid-template-columns: repeat(2, 1fr); }
