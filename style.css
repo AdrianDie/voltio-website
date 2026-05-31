@@ -306,6 +306,25 @@ button { font: inherit; cursor: pointer; }
 .action__sys { margin-left: auto; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted); background: var(--card); border: 1px solid var(--line); padding: 0.2em 0.55em; border-radius: var(--pill); }
 
 /* ============================================================
+   E-post (Outlook / Gmail)
+   ============================================================ */
+.epost__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
+.epost__points { list-style: none; padding: 0; margin: 1.4rem 0 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.epost__points li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: var(--fs-0); }
+.epost__points li::before { content: ""; flex: none; width: 20px; height: 20px; border-radius: 50%; margin-top: 1px; background: var(--cobalt-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B34FF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13l4 4L19 7'/%3E%3C/svg%3E") center / 13px no-repeat; }
+
+.mailcard { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-float); overflow: hidden; }
+.mailcard__bar { display: flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.1rem; border-bottom: 1px solid var(--line); background: var(--paper); font-size: var(--fs--1); font-weight: 620; color: var(--muted); }
+.mailcard__bar .sys-logo { width: 16px; height: 16px; }
+.mailcard__mail { padding: 1.1rem; border-bottom: 1px solid var(--line); }
+.mailcard__row { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+.mailcard__row span { display: inline-block; width: 44px; color: var(--muted); font-weight: 600; }
+.mailcard__body { margin: 0.6rem 0 0; font-size: 0.94rem; color: var(--ink); }
+.mailcard .actions { margin: 1.1rem; }
+.mailcard__draft { margin: 0 1.1rem 1.2rem; background: color-mix(in oklch, var(--cobalt-tint) 60%, var(--card)); border: 1px dashed var(--line-2); border-radius: 14px; padding: 0.8rem 0.9rem; }
+.mailcard__draft p { margin: 0.4rem 0 0; font-size: 0.92rem; color: var(--ink); }
+
+/* ============================================================
    Proof
    ============================================================ */
 .proof__grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
@@ -420,7 +439,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 1000px) {
-  .hero__grid, .problem__grid, .proof__grid, .pricing__grid, .faq__grid { grid-template-columns: 1fr; }
+  .hero__grid, .problem__grid, .proof__grid, .pricing__grid, .faq__grid, .epost__grid { grid-template-columns: 1fr; }
   .faq__head { position: static; }
   .proof__media { order: 2; }
   .steps__list, .compare__cols { grid-template-columns: 1fr; }

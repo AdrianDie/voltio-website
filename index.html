@@ -336,22 +336,49 @@
             </ul>
             <div class="bubble bubble--sent">
               <span class="bubble__who bubble__who--ok"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Løst for kunden</span>
-              Dette ser ut som en BMS-feil: batteriet kutter strømmen, og våkner når laderen kobles til, som nullstiller BMS-en. Sjekk først at laderen lyser grønt. Hjelper ikke en reset, er det trolig en svak celle som må på service, jeg har klargjort en sak for deg.
+              Det høres ut som en BMS-feil: batteriet kutter strømmen, men våkner når du kobler til laderen (det nullstiller BMS-en). Prøv dette: koble til laderen, la den lade helt til ladelampen lyser grønt (fulladet), og ta en kort testtur. Kutter den fortsatt uten lader tilkoblet, er det trolig en svak battericelle, og da har jeg klargjort en service-sak for deg.
             </div>
           </article>
+        </div>
+      </div>
+    </section>
 
-          <article class="scenario" data-reveal>
-            <span class="scenario__tag"><img class="sys-logo" src="logos/outlook.svg" alt="" aria-hidden="true"> På e-posten din</span>
-            <div class="bubble bubble--user">Hei, jeg har ikke fått ordrebekreftelse på bestillingen fra i går.</div>
+    <!-- ============ E-POST (OUTLOOK / GMAIL) ============ -->
+    <section class="section epost" id="epost">
+      <div class="wrap epost__grid">
+        <div class="epost__copy" data-reveal>
+          <h2 class="h2">Den jobber i innboksen din også</h2>
+          <p class="lead">
+            Voltio kobler seg til Outlook og Gmail, leser kundehenvendelser på
+            e-post, finner svaret i systemene dine og legger et ferdig utkast i
+            innboksen. Du godkjenner og sender, akkurat som vanlig.
+          </p>
+          <ul class="epost__points">
+            <li>Henter ordre- og kundedetaljer automatisk</li>
+            <li>Skriver svar i din tone, på kundens språk</li>
+            <li>Legger utkast i Outlook eller Gmail til godkjenning</li>
+          </ul>
+        </div>
+
+        <div class="epost__demo" data-reveal>
+          <article class="mailcard">
+            <div class="mailcard__bar">
+              <img class="sys-logo" src="logos/outlook.svg" alt="" aria-hidden="true">
+              <span>Outlook, innboks</span>
+            </div>
+            <div class="mailcard__mail">
+              <div class="mailcard__row"><span>Fra</span> kunde@epost.no</div>
+              <div class="mailcard__row"><span>Emne</span> Mangler ordrebekreftelse</div>
+              <p class="mailcard__body">Hei, jeg har ikke fått ordrebekreftelse på bestillingen fra i går.</p>
+            </div>
             <ul class="actions">
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Leste e-posten i Outlook <span class="action__sys">Outlook</span></li>
+              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Leste e-posten <span class="action__sys">Outlook</span></li>
               <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Fant ordren og status <span class="action__sys">Shopify</span></li>
               <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Skrev svar med ordredetaljer</li>
-              <li class="action"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> La utkast i Outlook til godkjenning</li>
             </ul>
-            <div class="bubble bubble--sent">
-              <span class="bubble__who bubble__who--auto"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Utkast lagt i Outlook</span>
-              Hei! Bestillingen din (#10592) er bekreftet og pakkes nå. Jeg sender deg bekreftelsen på nytt. Forventet levering er tirsdag.
+            <div class="mailcard__draft">
+              <span class="bubble__who bubble__who--auto"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M5 13l4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Utkast lagt i innboksen, klart til godkjenning</span>
+              <p>Hei! Bestillingen din (#10592) er bekreftet og pakkes nå. Jeg sender deg bekreftelsen på nytt. Forventet levering er tirsdag.</p>
             </div>
           </article>
         </div>
