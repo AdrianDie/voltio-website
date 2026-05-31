@@ -230,9 +230,6 @@ button { font: inherit; cursor: pointer; }
 .demo-card__input { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.8rem 1.1rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
 .demo-card__send { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--cobalt); color: #fff; }
 
-.demo-tag { position: absolute; z-index: 3; font-size: 0.76rem; font-weight: 680; padding: 0.5em 0.85em; border-radius: var(--pill); box-shadow: var(--sh-2); white-space: nowrap; }
-.demo-tag--draft { top: 8%; left: -6%; background: var(--card); color: var(--ink); border: 1px solid var(--line); }
-.demo-tag--lang { bottom: 12%; right: -4%; background: var(--cobalt); color: #fff; }
 
 /* ============================================================
    Problem
@@ -413,8 +410,6 @@ button { font: inherit; cursor: pointer; }
   .bento { grid-template-columns: repeat(2, 1fr); }
   .cell--wide { grid-column: span 2; }
   .hero__demo { margin-top: 1rem; }
-  .demo-tag--draft { left: 0; }
-  .demo-tag--lang { right: 0; }
 }
 
 @media (max-width: 760px) {
