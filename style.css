@@ -321,7 +321,7 @@ button { font: inherit; cursor: pointer; }
 .mailcard__row span { display: inline-block; width: 44px; color: var(--muted); font-weight: 600; }
 .mailcard__body { margin: 0.6rem 0 0; font-size: 0.94rem; color: var(--ink); }
 .mailcard .actions { margin: 1.1rem; }
-.mailcard__draft { margin: 0 1.1rem 1.2rem; background: color-mix(in oklch, var(--cobalt-tint) 60%, var(--card)); border: 1px dashed var(--line-2); border-radius: 14px; padding: 0.8rem 0.9rem; }
+.mailcard__draft { margin: 0 1.1rem 1.2rem; background: color-mix(in srgb, var(--cobalt-tint) 60%, var(--card)); border: 1px solid var(--line); border-radius: 14px; padding: 0.8rem 0.9rem; }
 .mailcard__draft p { margin: 0.4rem 0 0; font-size: 0.92rem; color: var(--ink); }
 
 /* ============================================================
