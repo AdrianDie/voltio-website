@@ -33,18 +33,46 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!hasGSAP) return;               // page already visible, nothing to enhance
+  document.documentElement.classList.add("js");
 
   var gsap = window.gsap;
   if (window.ScrollTrigger) gsap.registerPlugin(window.ScrollTrigger);
 
   if (reduce) {
-    /* Skip the looping demo; show a sensible static state */
+    /* Reveal everything, skip looping demo, show a sensible static demo */
+    gsap.set("[data-reveal]", { opacity: 1, y: 0 });
     var ap = document.querySelector(".demo-approve");
     if (ap) ap.style.display = "none";
     return;
   }
 
   var EASE = "expo.out";
+
+  /* ---- Scroll reveals ---- */
+  gsap.utils.toArray("[data-reveal]").forEach(function (el) {
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 26 },
+      {
+        opacity: 1, y: 0, duration: 0.85, ease: EASE,
+        scrollTrigger: { trigger: el, start: "top 86%", once: true }
+      }
+    );
+  });
+
+  /* ---- Floating shapes: gentle parallax on scroll + idle drift ---- */
+  gsap.utils.toArray(".hero .floater, .finalcta .floater").forEach(function (f, i) {
+    var depth = (i % 3) + 1;
+    gsap.to(f, {
+      yPercent: (i % 2 ? -1 : 1) * depth * 14,
+      ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 1 }
+    });
+    gsap.to(f, {
+      y: "+=12", duration: 3 + i * 0.4, ease: "sine.inOut",
+      repeat: -1, yoyo: true, delay: i * 0.2
+    });
+  });
 
   /* ---- Hero chat demo: answers directly, then drafts-and-asks when unsure ---- */
   var chat = document.getElementById("demoChat");
